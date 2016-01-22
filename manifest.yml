@@ -1,0 +1,13 @@
+---
+declared-services:
+  mean-mongo:
+    label: mongodb
+    plan: 100
+applications:
+- name: techtalent
+  host: techtalent-${random-word}
+  memory: 128M
+  services:
+  - techtalent-mongo
+  env:
+    NODE_ENV: cloud-foundry
