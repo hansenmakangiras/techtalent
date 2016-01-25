@@ -38,7 +38,7 @@ module.exports = function (karmaConfig) {
 
             cacheIdFromPath: function (filepath) {
                 return filepath;
-            },
+            }
         },
 
         // List of files / patterns to load in the browser
