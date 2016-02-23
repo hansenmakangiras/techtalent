@@ -39,8 +39,8 @@ module.exports = {
         }
     },
     facebook: {
-        clientID: process.env.FACEBOOK_ID || 'APP_ID',
-        clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+        clientID: process.env.FACEBOOK_ID || '1690330761186585',
+        clientSecret: process.env.FACEBOOK_SECRET || '8c276916b67298e83eec9c66d2fe994e',
         callbackURL: '/api/auth/facebook/callback'
     },
     twitter: {
@@ -49,13 +49,13 @@ module.exports = {
         callbackURL: '/api/auth/twitter/callback'
     },
     google: {
-        clientID: process.env.GOOGLE_ID || 'APP_ID',
-        clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+        clientID: process.env.GOOGLE_ID || '573705101198-n8c90t5cueecj4pc5d893gbatqbcl5al.apps.googleusercontent.com',
+        clientSecret: process.env.GOOGLE_SECRET || 'jwpPSyC-r3T-OtV7ohpDfUPY',
         callbackURL: '/api/auth/google/callback'
     },
     linkedin: {
-        clientID: process.env.LINKEDIN_ID || 'APP_ID',
-        clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
+        clientID: process.env.LINKEDIN_ID || '75ryg9srtbrqr1',
+        clientSecret: process.env.LINKEDIN_SECRET || 'Kd61E49RuRr05bTL',
         callbackURL: '/api/auth/linkedin/callback'
     },
     github: {
@@ -67,7 +67,7 @@ module.exports = {
         clientID: process.env.PAYPAL_ID || 'CLIENT_ID',
         clientSecret: process.env.PAYPAL_SECRET || 'CLIENT_SECRET',
         callbackURL: '/api/auth/paypal/callback',
-        sandbox: false
+        sandbox: true
     },
     mailer: {
         from: process.env.MAILER_FROM || 'MAILER_FROM',
