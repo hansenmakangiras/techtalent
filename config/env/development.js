@@ -8,10 +8,10 @@ var defaultEnvConfig = require('./default');
 module.exports = {
     db: {
         //uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds047305.mongolab.com:47305/tech_talent',
-        uri: process.env.MONGOHQ_URL || 'mongodb://devtech:devtech2016@ds047305.mongolab.com:47305/tech_talent' || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || '127.0.0.1') + '/mean-dev',
+        uri: process.env.MONGOHQ_URL || 'mongodb://devtech:devtech016@ds029595.mongolab.com:29595/tech-talent-dev' || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || '127.0.0.1') + '/mean-dev',
         options: {
-            user: '',
-            pass: ''
+            user: 'devtech',
+            pass: 'devtech2016'
         },
         // Enable mongoose debug mode
         debug: process.env.MONGODB_DEBUG || false

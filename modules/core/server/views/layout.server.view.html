@@ -42,10 +42,9 @@
 </head>
 
 <body id="main" class="ng-cloak">
-<!-- <div class="page-loader">
-    <img src="../../client/img/load.gif" alt="Loading...">
-</div> -->
-
+<div class="page-loader" ng-if="false">
+    <img ng-src="../../../client/img/load.gif" alt="Loading..">
+</div>
 {% block content %}{% endblock %}
 
 <!--Embedding The User Object-->
