@@ -17,7 +17,7 @@
 //            pass: ''
 //        }
 //    },
-//    sessionSecret: process.env.SESSION_SECRET || 'youshouldchangethistosomethingsecret',
+//    sessionSecret: process.env.SESSION_SECRET || 'DTCMakassar2016',
 //    facebook: {
 //        clientID: process.env.FACEBOOK_ID || 'APP_ID',
 //        clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',

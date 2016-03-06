@@ -11,20 +11,7 @@ module.exports = {
                 'public/lib/wow/css/animate.css',
                 'public/lib/tag-it/css/tagit.ui-zendesk.css',
                 'public/lib/angular-toastr/dist/angular-toastr.css',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot?#iefix',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular'
-            ],
-            fonts: [
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot?#iefix',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
-                'public/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular'
+                'public/lib/font-awesome/css/font-awesome.css'
             ],
             js: [
                 'public/lib/angular/angular.js',
@@ -39,7 +26,7 @@ module.exports = {
                 'public/lib/angular-toastr/dist/angular-toastr.tpls.js',
                 'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
                 'public/lib/wow/wow.js',
-                'public/lib/tag-it/js/tagit.js',
+                'public/lib/tag-it/js/tagit.js'
             ],
             tests: ['public/lib/angular-mocks/angular-mocks.js']
         },
