@@ -1,0 +1,60 @@
+<div class="col-md-12 text-center copyright-techtalent" ng-if="!authenticate.user">
+  &copy; copyright 2015 <a href="http://www.techtalent.asia/">techtalent.asia</a>
+</div>
+
+<div id="footer-page" ng-if="authenticate.user">
+  <footer class="footer__custom">
+    <div class="row no-margin">
+
+      <div class="container">
+        <div class="col-md-10 col-centered clearfix">
+          <div class="footer__custom--top clearfix">
+            <div class="col-md-4 no-padding">
+              <span><b>Best Keyword</b></span>
+              <ul class="list-group list-unstyled">
+                <li>Senior Angular Developer</li>
+                <li>Front End Developer</li>
+                <li>Quality Assurance</li>
+                <li>Web Designer</li>
+              </ul>
+            </div>
+            <div class="col-md-offset-1 col-md-3 no-padding">
+              <span><b>Help</b></span>
+              <ul class="list-group list-unstyled">
+                <li><a ui-sref="term">Terms of Conditions</a></li>
+                <li><a ui-sref="privacy">Privacy</a></li>
+                <li><a ui-sref="faq">FAQ</a></li>
+                <li><a ui-sref="contact">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 no-padding">
+              <div class="pull-right">
+                <span><b>Tech Talent Asia</b></span>
+                <ul class="list-group list-unstyled">
+                  <li><a ui-sref="about">What is Tech Talent Asia ?</a></li>
+                  <li><a ui-sref="about">About Us</a></li>
+                  <li><a ui-sref="career">Career</a></li>
+                  <li><a ui-sref="media">Media</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer__custom--bottom clearfix">
+            <ul class="list-inline pull-left no-margin">
+              <li>Hak Cipta &copy; 2016</li>
+              <li><a href="#">PT Docotel Teknologi Celebes</a></li>
+              <li><a href="">Peta Situs</a></li>
+            </ul>
+            <ul class="list-inline pull-right no-margin list-sosmed">
+              <li><a href=""><i class="fa fa-facebook-square"></i></a></li>
+              <li><a href=""><i class="fa fa-twitter-square"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</div>

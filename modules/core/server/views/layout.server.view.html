@@ -35,7 +35,6 @@
 
   <!-- Fav Icon -->
   <link href="{{favicon}}" rel="shortcut icon" type="image/x-icon">
-  <!-- <link rel="icon" sizes="16x16" href="img/favicon.png" /> -->
 
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}
@@ -47,52 +46,20 @@
 <div class="page-loader" ng-if="false">
   <img ng-src="/module/core/client/img/load.gif" alt="Loading..">
 </div>
+<!-- <div ng-include="'/modules/core/client/views/header.client.view.html'" ng-if="authenticate.user"></div> -->
 {% block content %}{% endblock %}
 
+<!-- <div ng-include="'/modules/core/client/views/footer.client.view.html'"></div> -->
 <!--Embedding The User Object-->
 {% for jsFile in jsFiles %}
 <script type="text/javascript" src="{{ jsFile }}"></script>
 {% endfor %}
 <script type="text/javascript">
   var user = '{{ user | json | safe }}';
-  angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+  angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />');
 </script>
 <!--Load The Socket.io File-->
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-<script type="text/javascript">
-  'use strict';
-  // WOW
-  new WOW().init();
-
-  // Page Loader
-//  $(window).load(function () {
-//    $('.page-loader').fadeOut();
-//  });
-
-  // Background Home
-//  function bgHome(status) {
-//    var el = $('body');
-//
-//    if (status === 'home') {
-//      el.removeClass('bg');
-//      el.addClass('bg-home');
-//    } else {
-//      el.removeClass('bg-home');
-//      el.addClass('bg');
-//    }
-//  }
-
-  function showProfile(el) {
-    $(el).click(function () {
-      $('div.wrapper__sidebar').removeClass('hide-sidebar');
-      $('div.body-overlay').fadeIn();
-    });
-    $('div.wrapper-icon-close, .body-overlay').click(function () {
-      $('div.wrapper__sidebar').addClass('hide-sidebar');
-      $('div.body-overlay').fadeOut();
-    });
-  }
-</script>
 {% if livereload %}
 <!--Livereload script rendered -->
 <script type="text/javascript" src="{{ host }}:35729/livereload.js"></script>

@@ -1,109 +1,43 @@
-<div class="login-container" ng-controller="AuthenticationController">
+
+<!-- include body of page here -->
+<div id="body-page" ng-controller="AuthenticationController">
   <div class="row no-margin">
-    <div class="col-md-3 col-centered col-sm-8 text-center h100vh">
-      <div class="login-form">
-        <a ui-sref="home" class="logo">Tech Talent Asia</a><br>
-        <span><strong><em>Sign Up using you account</em></strong></span>
-        <div class="login-container">
-          <button ng-click="callOauthProvider('/api/auth/linkedin')" class="btn-sosmed btn-sosmed-linkedin">
-            <div class="login-linkedin">
-              <!-- <i class="fa fa-linkedin"></i> -->Sign in with Linkedin
-            </div>
-          </button>
-          <button ng-click="callOauthProvider('/api/auth/google')" class="btn-sosmed btn-sosmed-google">
-            <div class="login-google">
-              <!-- <i class="fa fa-google-plus"></i> -->Sign in with Google
-            </div>
-          </button>
-        </div>
+    <div class="col-md-4 col-centered text-center container__signlog">
+      <div class="container__signlog--form">
+        <a ui-sref="index">
+          <img ng-src="modules/core/client/img/logo_techtalent.png" class="logo" alt="Tech Talent Logo" />
+        </a>
+        <button ng-click="callOauthProvider('/api/auth/linkedin')" class="btn btn-default btn-signlog btn-signlog-linkedin mb-10 center-block"> <i class="fa fa-linkedin-square"></i> Login with Linkedin</button>
+        <button ng-click="callOauthProvider('/api/auth/google')" class="btn btn-default btn-signlog btn-signlog-google center-block"> <i class="fa fa-google-plus-square"></i> Login with Google+</button>
         <hr>
-        <span><strong><em>Or Sign Up using your email address</em></strong></span>
-        <!-- <a href="/" class="logo">Tech Talent Asia</a> -->
-        <form ng-submit="signup(userForm.$valid)"
-              name="userForm"
-              class="form-login form-custom"
-              novalidate
-              autocomplete="off">
-          <!-- <fieldset> -->
-          <div class="form-group" show-errors>
-            <input type="text"
-                   id="firstName"
-                   class="form-control"
-                   placeholder="First Name"
-                   name="firstName"
-                   ng-model="credentials.firstName"
-                   required
-                   autofocus>
-            <!-- <div ng-messages="userForm.firstName.$error" role="alert">
-                <p class="help-block error-text font-gray" ng-message="required">First Name is required.</p>
-            </div> -->
+        <span><strong><em>OR</em></strong></span>
+
+        <form method="post" ng-submit="signup()" name="userForm" class="ng-invalid ng-invalid-required">
+          <div class="form-group">
+            <input type="text" class="form-control input-custom mb-10" placeholder="First Name" name="firstName" ng-model="credentials.firstName">
           </div>
           <div class="form-group" show-errors>
-            <input type="text"
-                   id="lastName"
-                   class="form-control"
-                   placeholder="Last Name"
-                   name="lastName"
-                   ng-model="credentials.lastName"
-                   required>
-            <!-- <div ng-messages="userForm.lastName.$error" role="alert">
-                <p class="help-block error-text font-gray" ng-message="required">Last Name is required.</p>
-            </div> -->
+            <input type="text" class="form-control input-custom mb-10" placeholder="Last Name" name="lastName" ng-model="credentials.lastName">
           </div>
           <div class="form-group" show-errors>
-            <input type="email"
-                   id="email"
-                   class="form-control"
-                   placeholder="Email"
-                   name="email"
-                   ng-model="credentials.email"
-                   required>
-            <!--  <div ng-messages="userForm.email.$error" role="alert">
-                 <p class="help-block error-text font-gray" ng-message="required">Email is required.</p>
-             </div> -->
-          </div>
-          <div class="form-group" show-errors>
-            <input type="text"
-                   id="username"
-                   class="form-control"
-                   placeholder="Username"
-                   name="username"
-                   ng-model="credentials.username"
-                   required>
-            <!-- <div ng-messages="userForm.username.$error" role="alert">
-                <p class="help-block error-text font-gray" ng-message="required">Username is required.</p>
-            </div> -->
-          </div>
-          <div class="form-group" show-errors>
-            <input type="text"
-                   id="password"
-                   class="form-control"
-                   placeholder="Password"
-                   name="password"
-                   ng-model="credentials.password"
-                   popover="{{popoverMsg}}"
-                   popover-trigger="focus"
-                   password-validator
-                   required>
-            <!-- <div ng-messages="userForm.password.$error" role="alert">
-                <p class="help-block error-text font-gray" ng-message="required">Password is required.</p>
-            </div> -->
+            <input type="text" class="form-control input-custom mb-10" placeholder="Username" name="username" ng-model="credentials.username" required autofocus>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-block btn-login">Sign Up</button>
+            <input type="email" class="form-control input-custom mb-10" placeholder="Email" name="email" ng-model="credentials.email" required>
           </div>
-          <hr>
-          <span><strong><em>Already have an account ? <a ui-sref="authentication.signin">Sign
-                                                                                         In</a></em></strong></span>
-
-          <alert type="danger" ng-show="error" class="text-center text-danger">
+          <div class="form-group" show-errors>
+            <input type="password" popover="{{popoverMsg}}"
+                   popover-trigger="focus"
+                   password-validator class="form-control input-custom" placeholder="Password" name="password" ng-model="credentials.password" required>
+          </div>
+          <div class="wrapper__button">
+            <button type="submit" class="pull-left ml-10 text-uppercase"><b>Sign Up</b></button>
+            <a ui-sref="signin" class="pull-right mr-10 text-uppercase"><b>Login</b></a>
+          </div>
+          <div class="alert alert-danger text-center text-danger" ng-show="error">
             <span ng-bind="error"></span>
-          </alert>
-          <!-- </fieldset> -->
-
+          </div>
         </form>
-        <!-- <p>Already have an account ? <a ui-sref="authentication.signin" class="font-gray"> Login </a></p> -->
-
       </div>
     </div>
   </div>

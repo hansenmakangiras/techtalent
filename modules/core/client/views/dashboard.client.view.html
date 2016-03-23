@@ -1,47 +1,22 @@
-<nav class="navbar navbar-default navbar-custom" ng-if="!authenticate.user">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="home">
-        <img class="logo" ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" />
-      </a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="signup" class="navbar-signup">Sign Up</a></li>
-        <li><a ui-sref="signin">Log In</a></li>
-      </ul>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<people></people>
-
-<div class="clearfix"></div>
-
-<div id="body-page" ng-if="authenticate.user">
+<div id="body-page">
   <div class="row no-margin">
     <div class="container__dashboard">
-      <div class="text-center container__dashboard&#45;&#45;greetings">
+      <div class="text-center container__dashboard--greetings">
         <span><b>What talent are you looking for ?</b></span>
         <span>We have <b>3.427</b> talent from Asia</span>
       </div>
 
-      <div class="container no-padding">
+      <div class="container no-padding" ng-init="searching()">
         <div class="empty col-xs-12" ng-hide="allUsers.length">No Results</div>
         <div class="col-md-3 col-sm-6 col-xs-12" ng-show="allUsers.length" ng-repeat="listUser in allUsers| filter:q ">
           <div class="wrapper__user text-center item">
             <div class="user-cover"></div>
             <div class="flag flag-id" data-placement="bottom" data-toggle="tooltip" title="{{ listUser.country }}"></div>
             <div class="user-profile" style="background-image: url('{{ listUser.pictureUrl.profile }}')"></div>
-            <div class="container__user&#45;&#45;profile">
+            <div class="container__user--profile">
               <a ui-sref="dashboard.profile.user({ id: listUser._id })"><b>{{ listUser.displayname }}</b></a>
               <span>{{ listUser.position }}</span>
-              &lt;!&ndash;<span class="ellipsis" ng-repeat="skill in listUser.skills" style="display: inline;">{{ skill.text }}</span>&ndash;&gt;
+              <!--<span class="ellipsis" ng-repeat="skill in listUser.skills" style="display: inline;">{{ skill.text }}</span>-->
               <br>
               <button type="button" class="btn btn-base center-block" id="connect" data-toggle="modal" data-target="#modalconnect">Connect</button>
             </div>
@@ -53,7 +28,7 @@
 </div>
 
 
-<!-- &lt;!&ndash; Modal &ndash;&gt; -->
+<!-- Modal -->
 <div class="modal fade" id="modalconnect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -66,9 +41,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-

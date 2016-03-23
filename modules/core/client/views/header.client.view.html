@@ -1,77 +1,61 @@
-<div id="wrapper-page">
-  <div id="header-page">
-
-    <nav class="navbar navbar-default navbar-dashboard">
-      <div class="container-fluid container-custom">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button"
-                  class="navbar-toggle collapsed"
-                  data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-1"
-                  aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" ui-sref="home">
-            <img ng-src="assets/img/logo_techtalent.png" alt="Tech Talent Logo" />
-          </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-left" role="search" ng-submit="search()">
-            <div class="form-group">
-              <input name="q"
-                     value="q"
-                     ng-model="q"
-                     type="text"
-                     class="form-control input-custom"
-                     placeholder="Looking for talented people in Asia">
-            </div>
-          </form>
-          <ul class="nav navbar-nav navbar-right navbar-right-custom">
-            <li><a class="no-padding" ui-sref="dashboard">Dashboard</a></li>
-            <li><a class="no-padding" href=""><i class="fa fa-envelope-o"></i></a></li>
-            <li><a class="no-padding" href=""><i class="fa fa-bell-o"></i></a></li>
-            <li class="show-sidebar">
-              <img ng-src="{{ user.profileImageURL || 'assets/img/users/default.jpg' }}"
-                   class="profile-pict"
-                   alt="User">
-              <a ui-sref="profile.user">{{ user.displayName || 'User' }}</a>
-              <a ui-sref="setting" class="no-padding"> Setting</a>
-              <a ng-click="logout()"> Sign Out </a>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="body-overlay"></div>
-
-    <div class="wrapper__sidebar hide-sidebar">
-      <div class="wrapper__sidebar--top">
-        <div class="wrapper-icon-close pull-right">
-          <a class="icon-close pull-right"></a>
-        </div>
-
-        <div class="hexagon" style="background-image: url('{{ user.profileImageURL }}')">
-          <div class="hexTop"></div>
-          <div class="hexBottom"></div>
-        </div>
-        <span class="center-block text-center user-name"><b>{{ user.firstName }}</b> {{ user.lastName }}</span>
-        <span class="center-block text-center user-title">{{ user.position }}</span>
+<div id="header-page" ng-controller="HeaderController" ng-if="authenticate.user">
+  <headroom class="navbar navbar-default navbar-dashboard" offset="100" tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
+    <div class="container-fluid container-custom">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="dashboard">
+          <img ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" />
+        </a>
       </div>
-      <div class="wrapper__sidebar--bottom">
-        <ul class="no-padding">
-          <li><a class="center-block" ui-sref="profile"> <i class="fa fa-user-secret"></i> Profile </a></li>
-          <li><a class="center-block"> <i class="fa fa-share-alt"></i> Your Connections </a></li>
-          <li><a class="center-block" ui-sref="setting"> <i class="fa fa-gears"></i> Settings </a></li>
-          <li><a ng-click="logout()" class="center-block"> <i class="fa fa-sign-out"></i> Sign Out </a></li>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left" role="search" ng-submit="searching()">
+          <div class="form-group">
+            <input name="q" ng-model="q" ng-model-options="{ debounce: 800 }" id="q" type="text" class="form-control input-custom" placeholder="Looking for talented people in Asia">
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right navbar-right-custom">
+          <li><a class="no-padding" ui-sref="home" ui-sref-active="active">Dashboard</a></li>
+          <li><a class="no-padding" ui-sref="message"><i class="fa fa-envelope-o"></i></a></li>
+          <li><a class="no-padding" href=""><i class="fa fa-bell-o"></i></a></li>
+          <li class="show-sidebar" onClick="showProfile(this)">
+            <img ng-src="{{ user.profileImageURL }}" class="profile-pict" alt="{{ user.displayName }}">
+            <a ui-sref-active="active">{{ user.displayName }}</a>
+          </li>
         </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </headroom>
+
+  <div class="body-overlay"></div>
+
+  <div class="wrapper__sidebar hide-sidebar">
+    <div class="wrapper__sidebar--top">
+      <div class="wrapper-icon-close pull-right">
+        <a class="icon-close pull-right"></a>
       </div>
+
+      <div class="hexagon" style="background-image: url('{{ user.profileImageURL }}')">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>
+      </div>
+      <span class="center-block text-center user-name"><b>{{ user.firstName }}</b> {{ user.lastName }}</span>
+      <span class="center-block text-center user-title">{{ user.position }}</span>
+    </div>
+    <div class="wrapper__sidebar--bottom">
+      <ul class="no-padding">
+        <li><a class="center-block" ui-sref="settings.profile" ui-sref-active="active"> <i class="fa fa-user-secret"></i> Profile </a></li>
+        <li><a class="center-block"> <i class="fa fa-share-alt"></i> Your Connections </a></li>
+        <li><a class="center-block" ui-sref="dashboard.setting"> <i class="fa fa-gears"></i> Settings </a></li>
+        <li><a href="/api/auth/signout" target="_self" class="center-block"> <i class="fa fa-sign-out"></i> Sign Out </a></li>
+      </ul>
     </div>
   </div>
 </div>

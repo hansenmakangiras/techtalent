@@ -11,9 +11,11 @@ module.exports = {
         'public/lib/wow/css/animate.css',
         'public/lib/tag-it/css/tagit.ui-zendesk.css',
         'public/lib/angular-toastr/dist/angular-toastr.css',
-        'public/lib/font-awesome/css/font-awesome.css'
+        'public/lib/font-awesome/css/font-awesome.css',
+        'public/lib/ng-tags-input/ng-tags-input.bootstrap.css'
       ],
       js: [
+        'public/lib/jquery/dist/jquery.js',
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -26,7 +28,9 @@ module.exports = {
         'public/lib/angular-toastr/dist/angular-toastr.tpls.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
         'public/lib/wow/wow.js',
-        'public/lib/tag-it/js/tagit.js'
+        'public/lib/headroom/headroom.min.js',
+        'public/lib/tag-it/js/tagit.js',
+        'public/lib/ng-tags-input/ng-tags-input.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

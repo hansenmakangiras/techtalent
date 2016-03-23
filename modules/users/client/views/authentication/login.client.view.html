@@ -1,48 +1,35 @@
-<div class="login-container" ng-controller="AuthenticationController">
-  <div class="row no-margin">
-    <div class="col-md-3 col-centered col-sm-8 text-center h100vh">
-      <div class="login-form">
-        <a ui-sref="home" class="logo">Tech Talent Asia</a>
-        <form ng-submit="signin(userForm.$valid)" name="userForm" class="form-login form-custom" novalidate
-              autocomplete="off">
-          <!-- <fieldset> -->
-          <div class="form-group" show-errors>
-            <input type="text" id="username" class="input-custom" placeholder="Email" name="username"
-                   ng-model="credentials.username" lowercase required autofocus>
-            <div ng-messages="userForm.username.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Username is required.</p>
-            </div>
-          </div>
-          <div class="form-group" show-errors>
-            <input type="password" id="password" class="input-custom" placeholder="Password" name="password"
-                   ng-model="credentials.password" required>
-            <div ng-messages="userForm.password.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Password is required.</p>
-            </div>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-block btn-login">Log In</button>
-          </div>
-          <div class="checkbox pull-left font-gray">
-            <label><input type="checkbox" ng-model="remember.me"> Remember me</label>
-          </div>
 
-          <p class="font-gray pull-right"><a ui-sref="password.forgot">Forgot your password ?</a></p>
-          <br><br>
-          <hr>
-          <span><strong><em>Didn't have account? <a ui-sref="authentication.signup">Sign Up</a></em></strong></span>
-          <alert type="danger" ng-show="error" class="text-center text-danger">
-            <span ng-bind="error"></span>
-          </alert>
-          <!-- </fieldset> -->
+<!-- include body of page here -->
+<div id="body-page" ng-controller="AuthenticationController">
+  <div class="row no-margin">
+    <div class="col-md-4 col-centered text-center container__signlog">
+      <div class="container__signlog--form">
+        <a ui-sref="index">
+          <img ng-src="modules/core/client/img/logo_techtalent.png" class="logo" alt="Tech Talent Logo" />
+        </a>
+        <button ng-click="callOauthProvider('/api/auth/linkedin')" class="btn btn-default btn-signlog btn-signlog-linkedin mb-10 center-block"> <i class="fa fa-linkedin-square"></i> Login with Linkedin</button>
+        <button ng-click="callOauthProvider('/api/auth/google')" class="btn btn-default btn-signlog btn-signlog-google center-block"> <i class="fa fa-google-plus-square"></i> Login with Google+</button>
+        <hr>
+        <span><strong><em>OR</em></strong></span>
+
+        <form method="post" ng-submit="signin()" name="userForm" novalidate autocomplete="off">
+          <div class="form-group" show-errors>
+            <input type="text" id="username" class="form-control input-custom mb-10" placeholder="Username" name="username" ng-model="credentials.username" lowercase required autofocus>
+          </div>
+          <div class="form-group" show-errors>
+            <input type="password" class="form-control input-custom" placeholder="Password" name="password" ng-model="credentials.password" required>
+          </div>
+          <a ui-sref="password.forgot" class="forgot">Forgot Password?</a><br>
+          <div class="wrapper__button">
+            <button type="submit" class="pull-left ml-10 text-uppercase"><b>Login</b></button>
+            <a ui-sref="signup" class="pull-right mr-10 text-uppercase"><b>Sign Up</b></a>
+          </div>
+          <!-- <div ng-show="error" class="alert alert-danger text-center text-danger">
+            <span>{{ error }}</span>
+          </div> -->
         </form>
-        <button ng-click="callOauthProvider('/api/auth/google')" class="btn-sosmed btn-sosmed-google"><i
-          class="fa fa-google-plus"></i>Sign in with Google
-        </button>
-        <button ng-click="callOauthProvider('/api/auth/google')" class="btn-sosmed btn-sosmed-linkedin"><i
-          class="fa fa-linkedin"></i>Sign in with LinkedIn
-        </button>
       </div>
     </div>
   </div>
 </div>
+

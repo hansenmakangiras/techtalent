@@ -2,7 +2,7 @@
  * Created by hanse on 2/28/2016.
  */
 'use strict';
-angular.module('core').directive('people', ['$window', '$q', function () {
+angular.module('core').directive('people', ['$window', '$q', function ($window, $q) {
   function load_script() {
     var c = document.getElementById('connection');
     var ctx = c.getContext('2d');
@@ -152,6 +152,7 @@ angular.module('core').directive('people', ['$window', '$q', function () {
   }
 
   return {
+    restrict: 'A',
     templateUrl: '/module/core/client/views/people.client.view.html',
     link: function () {
       load_script();
