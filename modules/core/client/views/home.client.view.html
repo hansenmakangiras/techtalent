@@ -1,9 +1,10 @@
-  <nav class="navbar navbar-default navbar-custom" ng-if="!authenticate.user">
+<div class="clearfix"></div>
+  <nav class="navbar navbar-default navbar-custom">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="home">
-          <img class="logo" ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" />
+          <img class="logo" ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" height="20px" />
         </a>
       </div>
 
@@ -18,57 +19,10 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
   <people></people>
 
-
-<div class="clearfix"></div>
-
-<div id="body-page" ng-if="authenticate.user">
-  <div class="row no-margin">
-    <div class="container__dashboard">
-      <div class="text-center container__dashboard&#45;&#45;greetings">
-        <span><b>What talent are you looking for ?</b></span>
-        <span>We have <b>3.427</b> talent from Asia</span>
-      </div>
-
-      <div class="container no-padding">
-        <div class="empty col-xs-12" ng-hide="allUsers.length">No Results</div>
-        <div class="col-md-3 col-sm-6 col-xs-12" ng-show="allUsers.length" ng-repeat="listUser in allUsers| filter:q ">
-          <div class="wrapper__user text-center item">
-            <div class="user-cover"></div>
-            <div class="flag flag-id" data-placement="bottom" data-toggle="tooltip" title="{{ listUser.country }}"></div>
-            <div class="user-profile" style="background-image: url('{{ listUser.pictureUrl.profile }}')"></div>
-            <div class="container__user&#45;&#45;profile">
-              <a ui-sref="dashboard.profile.user({ id: listUser._id })"><b>{{ listUser.displayname }}</b></a>
-              <span>{{ listUser.position }}</span>
-              &lt;!&ndash;<span class="ellipsis" ng-repeat="skill in listUser.skills" style="display: inline;">{{ skill.text }}</span>&ndash;&gt;
-              <br>
-              <button type="button" class="btn btn-base center-block" id="connect" data-toggle="modal" data-target="#modalconnect">Connect</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- &lt;!&ndash; Modal &ndash;&gt; -->
-<div class="modal fade" id="modalconnect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="HomeController">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <textarea class="form-control input-custom no-border" placeholder="Why you want to connect?" rows="3"></textarea>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning">Send Invitation</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+  <div class="clearfix"></div>
 
 
 

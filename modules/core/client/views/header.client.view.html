@@ -1,16 +1,24 @@
 <div id="header-page" ng-controller="HeaderController" ng-if="authenticate.user">
-  <headroom class="navbar navbar-default navbar-dashboard" offset="100" tolerance='0' offset='0' classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
+  <headroom class="navbar navbar-default navbar-dashboard"
+            offset="100"
+            tolerance='0'
+            offset='0'
+            classes="{pinned:'headroom--pinned',unpinned:'headroom--unpinned',initial:'headroom'}">
     <div class="container-fluid container-custom">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button"
+                class="navbar-toggle collapsed"
+                data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" ui-sref="dashboard">
-          <img ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" />
+          <img ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" height="20px" style="margin-top: 6px;" />
         </a>
       </div>
 
@@ -18,16 +26,80 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <form class="navbar-form navbar-left" role="search" ng-submit="searching()">
           <div class="form-group">
-            <input name="q" ng-model="q" ng-model-options="{ debounce: 800 }" id="q" type="text" class="form-control input-custom" placeholder="Looking for talented people in Asia">
+            <input name="q"
+                   ng-model="q"
+                   ng-model-options="{ debounce: 800 }"
+                   id="q"
+                   type="text"
+                   class="form-control input-custom"
+                   placeholder="Looking for talented people in Asia"
+                   style="border-radius: 100px">
           </div>
         </form>
         <ul class="nav navbar-nav navbar-right navbar-right-custom">
-          <li><a class="no-padding" ui-sref="home" ui-sref-active="active">Dashboard</a></li>
-          <li><a class="no-padding" ui-sref="message"><i class="fa fa-envelope-o"></i></a></li>
-          <li><a class="no-padding" href=""><i class="fa fa-bell-o"></i></a></li>
-          <li class="show-sidebar" onClick="showProfile(this)">
-            <img ng-src="{{ user.profileImageURL }}" class="profile-pict" alt="{{ user.displayName }}">
-            <a ui-sref-active="active">{{ user.displayName }}</a>
+          <li ng-if="isAuthenticated()"><a class="no-padding" ui-sref="dashboard" ui-sref-active="active">Dashboard</a>
+          </li>
+          <li ng-if="!isAuthenticated()"><a class="no-padding" ui-sref="login" ui-sref-active="active">Login</a></li>
+          <li ng-if="!isAuthenticated()"><a class="no-padding" ui-sref="signup" ui-sref-active="active">Signup</a></li>
+          <li ng-if="isAuthenticated()"><a class="no-padding"
+                                           ui-sref="dashboard.message"><i class="fa fa-envelope-o"></i></a></li>
+          <li ng-if="isAuthenticated()" class="dropdown dropdown-notif">
+            <a href="#"
+               class="no-padding dropdown-toggle"
+               data-toggle="dropdown"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false"><i class="fa fa-bell-o"></i></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">
+                  <div class="message">
+                    You have 7 new connection
+                  </div>
+                  <ul class="list-inline list-img">
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/1.jpg')"></div>
+                    </li>
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/2.jpg')"></div>
+                    </li>
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/3.jpg')"></div>
+                    </li>
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/4.jpg')"></div>
+                    </li>
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/5.jpg')"></div>
+                    </li>
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/6.jpg')"></div>
+                    </li>
+                    <li>
+                      <div class="img" style="background-image: url('assets/img/users/7.jpg')"></div>
+                    </li>
+                  </ul>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="message">
+                    <b>PT. Docotel</b> open new job. Maybe you wanna submit in there?
+                  </div>
+                </a>
+              </li>
+              <li class="more">
+                <a href="">
+                  <div class="message text-center">
+                    See More
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="show-sidebar" onclick="showProfile(this)" ng-if="isAuthenticated()">
+            <img ng-src="{{ user.pictureUrl }}" class="profile-pict" alt="{{ user.displayname }}">
+            <a ui-sref-active="active">{{ user.firstName }}</a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -35,14 +107,13 @@
   </headroom>
 
   <div class="body-overlay"></div>
-
+  <!--<modal-header></modal-header>-->
   <div class="wrapper__sidebar hide-sidebar">
     <div class="wrapper__sidebar--top">
       <div class="wrapper-icon-close pull-right">
         <a class="icon-close pull-right"></a>
       </div>
-
-      <div class="hexagon" style="background-image: url('{{ user.profileImageURL }}')">
+      <div class="hexagon" style="background-image: url('{{ user.pictureUrl }}')">
         <div class="hexTop"></div>
         <div class="hexBottom"></div>
       </div>
@@ -51,11 +122,14 @@
     </div>
     <div class="wrapper__sidebar--bottom">
       <ul class="no-padding">
-        <li><a class="center-block" ui-sref="settings.profile" ui-sref-active="active"> <i class="fa fa-user-secret"></i> Profile </a></li>
-        <li><a class="center-block"> <i class="fa fa-share-alt"></i> Your Connections </a></li>
+        <li><a class="center-block" ui-sref="dashboard.profile({ id: user._id })" ui-sref-active="active">
+          <i class="fa fa-user-secret"></i> Profile </a></li>
+        <li><a class="center-block" ui-sref="dashboard.connections({ id: user._id })" ui-sref-active="active">
+          <i class="fa fa-share-alt"></i> Your Connections </a></li>
         <li><a class="center-block" ui-sref="dashboard.setting"> <i class="fa fa-gears"></i> Settings </a></li>
-        <li><a href="/api/auth/signout" target="_self" class="center-block"> <i class="fa fa-sign-out"></i> Sign Out </a></li>
+        <li><a href="/api/auth/signout" class="center-block"> <i class="fa fa-sign-out"></i> Sign Out </a></li>
       </ul>
     </div>
   </div>
 </div>
+

@@ -1,42 +1,348 @@
-<div id="body-page">
-  <div class="row no-margin">
-    <div class="container__dashboard">
-      <div class="text-center container__dashboard--greetings">
-        <span><b>What talent are you looking for ?</b></span>
-        <span>We have <b>3.427</b> talent from Asia</span>
+<div id="dashboard">
+  <div class="container">
+    <div class="col-md-2">
+      <div class="card">
+        <div class="title">Filter</div>
+        <div class="content">
+          <ul class="list-unstyled">
+            <li><input type="checkbox" id="Event"><label for="Event" class="f-normal f-small">&nbsp;&nbsp;Event</label>
+            </li>
+            <li><input type="checkbox" id="Job"><label for="Job" class="f-normal f-small">&nbsp;&nbsp;Job</label></li>
+            <li><input type="checkbox" id="News"><label for="News" class="f-normal f-small">&nbsp;&nbsp;News</label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="card">
+        <div class="tab">
+          <ul class="list-unstyled list-inline no-margin">
+            <li class="tab-label">Create</li>
+            <li class="tab-link active" role="presentation"><a href="#event"
+                                                               onclick="return false;"
+                                                               aria-controls="event"
+                                                               role="tab"
+                                                               data-toggle="tab">Event</a></li>
+            <li class="tab-link" role="presentation"><a href="#job"
+                                                        onclick="return false;"
+                                                        aria-controls="job"
+                                                        role="tab"
+                                                        data-toggle="tab">Job</a></li>
+            <li class="tab-link" role="presentation"><a href="#news"
+                                                        onclick="return false;"
+                                                        aria-controls="news"
+                                                        role="tab"
+                                                        data-toggle="tab">News</a></li>
+          </ul>
+        </div>
+        <div class="content">
+
+          <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane active" id="event">
+              <form action="">
+                <input type="file" class="hidden" id="photo-event">
+                <label class="photo-event" for="photo-event"><i class="fa fa-camera"></i></label>
+
+                <div class="event-right">
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Event Name</div>
+                      <div class="col-md-9 no-padding">
+                        <input type="text" class="form-control" placeholder="Add the name short and clear">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Location</div>
+                      <div class="col-md-9 no-padding">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="ex. Indonesia, Makassar Jln. BTN Makkio Baji">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Date / Time</div>
+                      <div class="col-md-4 no-padding">
+                        <input type="date" class="form-control">
+                      </div>
+                      <div class="col-md-4">
+                        <input type="time" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Description</div>
+                      <div class="col-md-9 no-padding">
+												<textarea rows="3"
+                                  class="form-control"
+                                  placeholder="Talk more to people about your event"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="form-footer">
+                  <div class="pull-right">
+                    <button class="btn-submit">Publish</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="job">
+              <form action="">
+                <input type="file" class="hidden" id="photo-event">
+                <label class="photo-event" for="photo-event"><i class="fa fa-camera"></i></label>
+
+                <div class="event-right">
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Job Title</div>
+                      <div class="col-md-9 no-padding">
+                        <input type="text" class="form-control" placeholder="Add the name short and clear">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Location</div>
+                      <div class="col-md-9 no-padding">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="ex. Indonesia, Makassar">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Range Date</div>
+                      <div class="col-md-4 no-padding">
+                        <input type="date" class="form-control">
+                      </div>
+                      <div class="col-md-1 no-padding text-center lh35"> -</div>
+                      <div class="col-md-4 no-padding">
+                        <input type="date" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Company</div>
+                      <div class="col-md-9 no-padding">
+                        <input type="text" class="form-control" placeholder="Your Company name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row no-margin h30">
+                      <div class="form-label col-md-3 no-padding">Description</div>
+                      <div class="col-md-9 no-padding">
+												<textarea rows="3"
+                                  class="form-control"
+                                  placeholder="Talk more to people about your event"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="form-footer">
+                  <div class="pull-right">
+                    <button class="btn-submit">Publish</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="news">cs</div>
+
+            <div class="clearfix"></div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="container no-padding" ng-init="searching()">
-        <div class="empty col-xs-12" ng-hide="allUsers.length">No Results</div>
-        <div class="col-md-3 col-sm-6 col-xs-12" ng-show="allUsers.length" ng-repeat="listUser in allUsers| filter:q ">
-          <div class="wrapper__user text-center item">
-            <div class="user-cover"></div>
-            <div class="flag flag-id" data-placement="bottom" data-toggle="tooltip" title="{{ listUser.country }}"></div>
-            <div class="user-profile" style="background-image: url('{{ listUser.pictureUrl.profile }}')"></div>
-            <div class="container__user--profile">
-              <a ui-sref="dashboard.profile.user({ id: listUser._id })"><b>{{ listUser.displayname }}</b></a>
-              <span>{{ listUser.position }}</span>
-              <!--<span class="ellipsis" ng-repeat="skill in listUser.skills" style="display: inline;">{{ skill.text }}</span>-->
-              <br>
-              <button type="button" class="btn btn-base center-block" id="connect" data-toggle="modal" data-target="#modalconnect">Connect</button>
+      <div class="card">
+        <div class="cover" style="background-image: url(assets/img/covers/1.jpg);"></div>
+        <div class="content">
+          <div class="date">
+            <span class="d">7</span>
+            <span class="my">May 2016</span>
+          </div>
+          <div class="event-right-content">
+            <h3><b>Lorem ipsum dolor sit amet, consectetur.sum dolor sit amet, consectetur.</b></h3>
+            <span class="meta"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Indonesia, Makassar Jln BTN Makkio Baji</span>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non suscipit laborum facere voluptas commodi
+                 aliquid repellat, obcaecati molestias eligendi at quae saepe ipsa ipsam? Ipsam perspiciatis sit, enim
+                 ipsum aliquid veniam cupiditate nobis impedit nesciunt, ab alias aperiam illum debitis officia! Natus
+                 ut ex dolores tempora autem culpa repellat quidem?</p>
+            </div>
+            <a href="" class="view-more">More</a>
+          </div>
+          <div class="footer-event">
+            <div class="pull-left">
+              <ul class="list-unstyled list-inline">
+                <li><a href=""><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Like</a></li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-commenting"></i>&nbsp;&nbsp;Comment</a></li>
+              </ul>
+            </div>
+            <div class="pull-right">
+              <ul class="list-unstyled list-inline">
+                <li>By <a href="">Gifa Eriyanto</a></li>
+              </ul>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="comments-base">
+              <ul class="list-unstyled comments">
+                <li class="comment">
+                  <div class="img" style="background-image: url(assets/img/users/default.jpg)"></div>
+                  <input type="text" class="form-control" placeholder="Write your comment here">
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
+      <div class="card">
+        <div class="content">
+          <div class="company-brand" style="background-image: url(assets/img/covers/1.jpg);"></div>
+          <div class="job-right-content">
+            <h3><b>Lorem ipsum dolor sit amet, consectetur.sum dolor sit amet, consectetur.</b></h3>
+            <span class="meta">Neuronworks Indonesia PT &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-map-marker"></i>&nbsp;&nbsp;Indonesia, Makassar</span>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non suscipit laborum facere voluptas commodi
+                 aliquid repellat, obcaecati molestias eligendi at quae saepe ipsa ipsam? Ipsam perspiciatis sit, enim
+                 ipsum aliquid veniam cupiditate nobis impedit nesciunt, ab alias aperiam illum debitis officia! Natus
+                 ut ex dolores tempora autem culpa repellat quidem?</p>
+            </div>
+            <a href="" class="view-more">More</a>
+          </div>
+          <div class="footer-event">
+            <div class="pull-left">
+              <ul class="list-unstyled list-inline">
+                <li>Start from 10 March 2016</li>
+              </ul>
+            </div>
+            <div class="pull-right">
+              <ul class="list-unstyled list-inline">
+                <li>Close at 27 March 2016</li>
+              </ul>
+            </div>
 
-<!-- Modal -->
-<div class="modal fade" id="modalconnect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <textarea class="form-control input-custom no-border" placeholder="Why you want to connect?" rows="3"></textarea>
+            <div class="clearfix"></div>
+
+            <div class="comments-base">
+              <ul class="list-unstyled comments">
+                <li class="comment">
+                  <div class="img" style="background-image: url(assets/img/users/default.jpg)"></div>
+                  <input type="text" class="form-control" placeholder="Write your comment here">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning">Send Invitation</button>
+
+      <div class="card">
+        <div class="cover" style="background-image: url(assets/img/covers/1.jpg);"></div>
+        <div class="content">
+          <div class="date">
+            <span class="d">7</span>
+            <span class="my">May 2016</span>
+          </div>
+          <div class="event-right-content">
+            <h3><b>Lorem ipsum dolor sit amet, consectetur.sum dolor sit amet, consectetur.</b></h3>
+            <span class="meta"><i class="fa fa-map-marker"></i>&nbsp;&nbsp;Indonesia, Makassar Jln BTN Makkio Baji</span>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non suscipit laborum facere voluptas commodi
+                 aliquid repellat, obcaecati molestias eligendi at quae saepe ipsa ipsam? Ipsam perspiciatis sit, enim
+                 ipsum aliquid veniam cupiditate nobis impedit nesciunt, ab alias aperiam illum debitis officia! Natus
+                 ut ex dolores tempora autem culpa repellat quidem?</p>
+            </div>
+            <a href="" class="view-more">More</a>
+          </div>
+          <div class="footer-event">
+            <div class="pull-left">
+              <ul class="list-unstyled list-inline">
+                <li><a href=""><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;Like</a></li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-commenting"></i>&nbsp;&nbsp;Comment</a></li>
+              </ul>
+            </div>
+            <div class="pull-right">
+              <ul class="list-unstyled list-inline">
+                <li>By <a href="">Gifa Eriyanto</a></li>
+              </ul>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="comments-base">
+              <ul class="list-unstyled comments">
+                <li class="comment">
+                  <div class="img" style="background-image: url(assets/img/users/2.jpg)"></div>
+                  <div class="content">
+                    <div class="comment-title"><a href="">Ray Yapari</a></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus veritatis amet laboriosam maxime
+                       aliquam accusamus sunt dignissimos corporis minima accusantium.</p>
+                  </div>
+                </li>
+                <li class="comment">
+                  <div class="img" style="background-image: url(assets/img/users/3.jpg)"></div>
+                  <div class="content">
+                    <div class="comment-title"><a href="">Andri Ex Kobe</a></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus veritatis amet laboriosam maxime
+                       aliquam accusamus sunt dignissimos corporis minima accusantium.</p>
+                  </div>
+                </li>
+                <li class="comment">
+                  <div class="img" style="background-image: url(assets/img/users/default.jpg)"></div>
+                  <input type="text" class="form-control" placeholder="Write your comment here">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="title">Popular Talent</div>
+        <div class="content">
+          <ul class="list-unstyled popular-talent">
+            <li>
+              <a href="">
+                <div class="img"></div>
+                <div class="name">Gifa Eriyanto</div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="img"></div>
+                <div class="name">Gifa Eriyanto</div>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <div class="img"></div>
+                <div class="name">Gifa Eriyanto</div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

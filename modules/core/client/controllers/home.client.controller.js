@@ -112,7 +112,6 @@ angular.module('core').controller('HomeController', ['$window','$scope', 'Authen
         top: 'calc(400px - 40px)'
       }
     ];
-
-   bgHome('home');
+    //bgHome('home');
   }
 ]);

@@ -10,7 +10,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {
-     //toastr.info('User is authenticated');
+      //toastr.info('User is authenticated');
       //$state.go('admin');
       $location.path('/dashboard');
     }
@@ -40,11 +40,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     $scope.signin = function (isValid) {
       $scope.error = null;
 
-     if (!isValid) {
-       $scope.$broadcast('show-errors-check-validity', 'userForm');
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'userForm');
 
-       return false;
-     }
+        return false;
+      }
 
       $http.post('/api/auth/signin', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
