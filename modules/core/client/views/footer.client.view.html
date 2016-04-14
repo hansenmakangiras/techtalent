@@ -1,8 +1,8 @@
-<div class="col-md-12 text-center copyright-techtalent" ng-if="!authenticate.user">
+<div class="col-md-12 text-center copyright-techtalent" ng-hide="authenticate.user">
   &copy; copyright 2015 <a href="http://www.techtalent.asia/">techtalent.asia</a>
 </div>
 
-<div id="footer-page" ng-if="authenticate.user">
+<div id="footer-page" ng-show="authenticate.user">
   <footer class="footer__custom">
     <div class="row no-margin">
 

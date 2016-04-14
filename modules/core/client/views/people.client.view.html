@@ -1,20 +1,22 @@
-<div class="top-absolute" ng-controller="HomeController">
-  <div class="users">
+<div>
+  <div class="top-absolute">
+    <div class="users">
 
-    <div class="wrapper" ng-repeat="user in users">
-      <a href="profil.html">
-        <div class="user hexagon wow bounceIn"
-             data-wow-delay=".{{ $index }}s"
-             style="background-image: url(./../img/users/{{ user.img }}); left: {{ user.left }}; top: {{ user.top }}">
-          <div class="hexTop"></div>
-          <div class="hexBottom"></div>
-        </div>
-      </a>
+      <div class="wrapper" ng-repeat="user in users">
+        <a href="profil.html">
+          <div class="user hexagon wow bounceIn"
+               data-wow-delay=".{{ $index }}s"
+               style="background-image: url(./modules/core/client/img/users/{{ user.img }}); left: {{ user.left }}; top: {{ user.top }}">
+            <div class="hexTop"></div>
+            <div class="hexBottom"></div>
+          </div>
+        </a>
+      </div>
     </div>
-
   </div>
+  <canvas id="connection" width="800px" height="600px" class="wow fadeIn" data-wow-delay=".3s">
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
 </div>
 
-<canvas id="connection" width="800px" height="600px" class="wow fadeIn" data-wow-delay=".3s">
-  Your browser does not support the HTML5 canvas tag.
-</canvas>
+

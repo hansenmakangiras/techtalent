@@ -1,25 +1,25 @@
-<nav class="navbar navbar-default navbar-custom" ng-if="!authenticate.user">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="home">
-        <img class="logo" ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" />
-      </a>
-    </div>
+  <nav class="navbar navbar-default navbar-custom" ng-if="!authenticate.user">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">
+          <img class="logo" ng-src="/modules/core/client/img/logo_techtalent.png" alt="Tech Talent Logo" />
+        </a>
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="" id="bs-example-navbar-collapse-1">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="" id="bs-example-navbar-collapse-1">
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="signup" class="navbar-signup">Sign Up</a></li>
-        <li><a ui-sref="signin">Log In</a></li>
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ui-sref="authentication.signup" class="navbar-signup">Sign Up</a></li>
+          <li><a ui-sref="authentication.signin">Log In</a></li>
+        </ul>
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <people></people>
 
-<people></people>
 
 <div class="clearfix"></div>
 
@@ -54,7 +54,7 @@
 
 
 <!-- &lt;!&ndash; Modal &ndash;&gt; -->
-<div class="modal fade" id="modalconnect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="modalconnect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="HomeController">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
@@ -66,6 +66,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

@@ -113,7 +113,6 @@ angular.module('core').controller('HomeController', ['$window','$scope', 'Authen
       }
     ];
 
-//    bgHome('home');
-    $window.bgHome('home');
+   bgHome('home');
   }
 ]);

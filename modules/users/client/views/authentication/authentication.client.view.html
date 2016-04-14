@@ -1,14 +1,22 @@
-<!-- <div class="row no-margin" ng-controller="AuthenticationController"> -->
-
-  <!--  <h3 class="col-md-12 text-center">
-       <a ui-sref="home" class="logo">Tech Talent Asia</a>
-   </h3> -->
-  <!-- <div ui-view></div> -->
-  <!-- <div class="text-center">
-      <p class="col-md-12 text-center"><strong><em>Or Sign In Using Your Account</em></strong></p>
-
-      <button ng-click="callOauthProvider('/api/auth/google')" class="btn-sosmed btn-sosmed-google"><i class="fa fa-google-plus"></i>Sign in with Google</button>
-      <button ng-click="callOauthProvider('/api/auth/google')" class="btn-sosmed btn-sosmed-linkedin"><i class="fa fa-linkedin"></i>Sign in with LinkedIn</button>
+<div id="body-page" ng-controller="AuthenticationController">
+  <div class="row no-margin">
+    <div class="col-md-4 col-centered text-center container__signlog">
+      <div class="container__signlog--form">
+        <a ui-sref="home">
+          <img ng-src="modules/core/client/img/logo_techtalent.png" class="logo" alt="Tech Talent Logo" />
+        </a>
+        <button ng-click="callOauthProvider('/api/auth/linkedin')"
+                class="btn btn-default btn-signlog btn-signlog-linkedin mb-10 center-block">
+          <i class="fa fa-linkedin-square"></i> Login with Linkedin
+        </button>
+        <button ng-click="callOauthProvider('/api/auth/google')"
+                class="btn btn-default btn-signlog btn-signlog-google center-block">
+          <i class="fa fa-google-plus-square"></i> Login with Google+
+        </button>
+        <hr>
+        <span><strong><em>OR</em></strong></span>
+        <div ui-view></div>
+      </div>
+    </div>
   </div>
--->
-<!-- </div> -->
+</div>

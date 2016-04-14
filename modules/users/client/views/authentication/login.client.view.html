@@ -1,35 +1,38 @@
-
 <!-- include body of page here -->
-<div id="body-page" ng-controller="AuthenticationController">
-  <div class="row no-margin">
-    <div class="col-md-4 col-centered text-center container__signlog">
-      <div class="container__signlog--form">
-        <a ui-sref="index">
-          <img ng-src="modules/core/client/img/logo_techtalent.png" class="logo" alt="Tech Talent Logo" />
-        </a>
-        <button ng-click="callOauthProvider('/api/auth/linkedin')" class="btn btn-default btn-signlog btn-signlog-linkedin mb-10 center-block"> <i class="fa fa-linkedin-square"></i> Login with Linkedin</button>
-        <button ng-click="callOauthProvider('/api/auth/google')" class="btn btn-default btn-signlog btn-signlog-google center-block"> <i class="fa fa-google-plus-square"></i> Login with Google+</button>
-        <hr>
-        <span><strong><em>OR</em></strong></span>
-
-        <form method="post" ng-submit="signin()" name="userForm" novalidate autocomplete="off">
-          <div class="form-group" show-errors>
-            <input type="text" id="username" class="form-control input-custom mb-10" placeholder="Username" name="username" ng-model="credentials.username" lowercase required autofocus>
-          </div>
-          <div class="form-group" show-errors>
-            <input type="password" class="form-control input-custom" placeholder="Password" name="password" ng-model="credentials.password" required>
-          </div>
-          <a ui-sref="password.forgot" class="forgot">Forgot Password?</a><br>
-          <div class="wrapper__button">
-            <button type="submit" class="pull-left ml-10 text-uppercase"><b>Login</b></button>
-            <a ui-sref="signup" class="pull-right mr-10 text-uppercase"><b>Sign Up</b></a>
-          </div>
-          <!-- <div ng-show="error" class="alert alert-danger text-center text-danger">
-            <span>{{ error }}</span>
-          </div> -->
-        </form>
-      </div>
-    </div>
+<form method="post"
+      class="ng-invalid ng-invalid-required"
+      ng-submit="signin()"
+      name="userForm"
+      novalidate
+      autocomplete="off" ng-controller="AuthenticationController">
+  <div class="form-group" show-errors>
+    <input type="text"
+           id="username"
+           class="form-control input-custom mb-10"
+           placeholder="Username"
+           name="username"
+           ng-model="credentials.username"
+           lowercase
+           required
+           autofocus>
+    <p class="error" ng-show="userForm.username.$touched && userForm.username.$invalid">The username is required</p>
   </div>
-</div>
+  <div class="form-group" show-errors>
+    <input type="password"
+           class="form-control input-custom"
+           placeholder="Password"
+           name="password"
+           ng-model="credentials.password"
+           required>
+    <p class="error" ng-show="userForm.password.$touched && userForm.password.$invalid">The password is required</p>
+  </div>
+  <a ui-sref="password.forgot" class="forgot">Forgot Password?</a><br>
+  <div class="wrapper__button">
+    <button type="submit" class="pull-left ml-10 text-uppercase"><b>Login</b></button>
+    <a ui-sref="authentication.signup" class="pull-right mr-10 text-uppercase"><b>Sign Up</b></a>
+  </div>
+  <!-- <div ng-show="error" class="alert alert-danger text-center text-danger">
+    <span>{{ error }}</span>
+  </div> -->
+</form>
 

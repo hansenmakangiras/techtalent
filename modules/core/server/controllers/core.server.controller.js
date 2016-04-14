@@ -12,6 +12,12 @@ exports.renderIndex = function (req, res) {
   });
 };
 
+exports.renderAdmin = function (req, res) {
+  res.render('modules/core/server/views/dashboard', {
+    user: req.user || null
+  });
+};
+
 /**
  * Render the server error page
  */

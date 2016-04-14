@@ -9,10 +9,11 @@ angular.module('core.admin.routes').config(['$stateProvider',
     $stateProvider
       .state('admin', {
         abstract: true,
-        url: '/admin',
+        url: '/dashboard',
         template: '<ui-view/>',
         data: {
-          roles: ['admin']
+          roles: ['admin'],
+          pageTransition: 'wow fadein'
         }
       });
   }

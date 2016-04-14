@@ -44,19 +44,46 @@
 
 <body id="main" class="ng-cloak">
 <div class="page-loader" ng-if="false">
-  <img ng-src="/module/core/client/img/load.gif" alt="Loading..">
+  <img ng-src="/modules/core/client/img/load.gif" alt="Loading..">
 </div>
-<!-- <div ng-include="'/modules/core/client/views/header.client.view.html'" ng-if="authenticate.user"></div> -->
+ <div ng-include="'/modules/core/client/views/header.client.view.html'" ng-if="authenticate.user"></div>
 {% block content %}{% endblock %}
 
-<!-- <div ng-include="'/modules/core/client/views/footer.client.view.html'"></div> -->
+ <div ng-include="'/modules/core/client/views/footer.client.view.html'" ng-if="!authenticate.user"></div>
 <!--Embedding The User Object-->
 {% for jsFile in jsFiles %}
 <script type="text/javascript" src="{{ jsFile }}"></script>
 {% endfor %}
 <script type="text/javascript">
   var user = '{{ user | json | safe }}';
-  angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />');
+  new WOW().init();
+  $(window).load(function () {
+    $('.page-loader').fadeOut();
+  });
+
+  function bgHome(status) {
+    var el = $('body');
+
+    if (status === 'home') {
+      el.removeClass('bg');
+      el.addClass('bg-home');
+    } else {
+      el.removeClass('bg-home');
+      el.addClass('bg');
+    }
+  }
+
+  function showProfile(el) {
+    $(el).click(function(){
+      $("div.wrapper__sidebar").removeClass("hide-sidebar");
+      $("div.body-overlay").fadeIn();
+    });
+    $("div.wrapper-icon-close, .body-overlay, .wrapper__sidebar--bottom a").click(function(){
+      $("div.wrapper__sidebar").addClass("hide-sidebar");
+      $("div.body-overlay").fadeOut();
+    })
+  }
+  //  angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />');
 </script>
 <!--Load The Socket.io File-->
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
