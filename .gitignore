@@ -5,6 +5,7 @@
 ### Yeoman template
 node_modules/
 bower_components/
+public/lib
 *.log
 
 build/
